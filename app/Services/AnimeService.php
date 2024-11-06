@@ -15,6 +15,8 @@ class AnimeService
         $this->animeRepository = $animeRepository;
     }
 
+    // Calls Jikan API to retrieve top 100 anime in 4 pages (25 per page).
+    // Transforms and saves data to the database via AnimeRepository.
     public function importTopAnime(): void
     {
         try {
@@ -53,7 +55,7 @@ class AnimeService
         }
     }
 
-
+    // Uses AnimeRepository to fetch anime based on provided slug and language.
     public function findAnimeBySlugAndLang(string $slug, string $lang)
     {
         return $this->animeRepository->findBySlugAndLang($slug, $lang);

@@ -15,7 +15,7 @@ class AnimeController extends Controller
     {
         $this->animeService = $animeService;
     }
-
+    // Imports top 100 anime data using AnimeService and saves it to the database.
     public function importTopAnime()
     {
         try {
@@ -26,6 +26,9 @@ class AnimeController extends Controller
         }
     }
 
+
+    // Fetches anime by slug and language parameters.
+    // Returns anime data if found, otherwise returns error response.
     public function show(Request $request)
     {
         $slug = $request->query('slug');
